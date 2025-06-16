@@ -1,0 +1,4 @@
+.cyan-bg {
+  background-color: #0d9488; /* This is Tailwind's cyan-700 */
+  color: white;
+}

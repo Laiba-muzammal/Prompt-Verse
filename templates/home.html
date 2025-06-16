@@ -3,26 +3,22 @@
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
-  <h1>Welcome to PromptVerse!</h1>
-  <form method="post">
-    How can I help you today?
-    <br>
-    <input type="text" name="prompt" placeholder="Enter your prompt here"></input>
-    <button type="submit">Submit</button>
-  </form>
+<body class="cyan-bg">
 
-  {% if prompt %}
-    <p><strong>You submitted:</strong> {{ prompt }}</p>
-  {% endif %}
+<h1 class="mb-4">Submit Your Prompt</h1>
 
-  {% if error %}
-    <p>{{ error }}</p>
-  {% endif %}
+<form method="POST" 
+      class="container bg-white p-4 rounded shadow-sm" 
+      style="max-width: 500px;">
 
-  <ul>
-    {% for prompt in prompts %}
-      <li>{{ prompt }}</li>
-    {% endfor %}
-  </ul>
+  <input type="text" 
+         class="form-control mb-3" 
+         name="prompt" 
+         placeholder="Enter your prompt here">
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
 
 {% endblock %}
+
