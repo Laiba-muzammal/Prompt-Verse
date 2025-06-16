@@ -5,15 +5,24 @@
 {% block content %}
   <h1>Welcome to PromptVerse!</h1>
   <form method="post">
-    HOW CAN WE HELP YOU TODAY?
+    How can I help you today?
+    <br>
     <input type="text" name="prompt" placeholder="Enter your prompt here"></input>
     <button type="submit">Submit</button>
   </form>
 
   {% if prompt %}
     <p><strong>You submitted:</strong> {{ prompt }}</p>
-  {% else %}
-    <p>No prompt submitted yet.</p>
   {% endif %}
+
+  {% if error %}
+    <p>{{ error }}</p>
+  {% endif %}
+
+  <ul>
+    {% for prompt in prompts %}
+      <li>{{ prompt }}</li>
+    {% endfor %}
+  </ul>
 
 {% endblock %}

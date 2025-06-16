@@ -1,0 +1,13 @@
+{%extends "layout.html" %}
+
+{% block title %}Prompts{% endblock %}
+
+{%block content %}
+
+  <h1>Prompts</h1>
+  <ul>
+    {% for prompt in prompts %}
+      <li>{{ prompt }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
