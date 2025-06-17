@@ -1,4 +1,36 @@
-.cyan-bg {
-  background-color: #0d9488; /* This is Tailwind's cyan-700 */
+.glass-bg {
+  background: linear-gradient(to right, #0aa4a1, #ff1a7d);
   color: white;
+  min-height: 100%;
+}
+/* Glassy background */
+.glass-bg {
+  background: linear-gradient(to right, #0aa4a1, #ff1a7d);
+  min-height: 100vh;
+  color: white;
+  padding: 2rem;
+}
+
+/* Glass-style card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15); /* slightly more visible */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* gives proper edges */
+  color: white;
+}
+
+/* Navbar links */
+.nav-link {
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  color: #cceeff;
 }

@@ -1,17 +1,18 @@
-{%extends "layout.html" %}
+{% extends "layout.html" %}
 
 {% block title %}Prompts{% endblock %}
 
-{%block content %}
-<div class="bg-light p-4 rounded shadow">
-
-
-  <h1>Prompts</h1>
-  <ul>
-    {% for prompt in prompts %}
-      <li>{{ prompt }}</li>
-    {% endfor %}
-  </ul>
-{% endblock %}
-    <!-- form or prompts -->
+{% block content %}
+<div class="container mt-5">
+  <div class="glass-card p-4 rounded shadow">
+    <h1 class="text-white">Prompts</h1>
+    <ol class="text-white">
+      {% for prompt in prompts %}
+        <li>{{ prompt }}</li>
+      {% else %}
+        <p class="text-white" >No prompts found.</p>
+      {% endfor %}
+    </ol>
   </div>
+</div>
+{% endblock %}

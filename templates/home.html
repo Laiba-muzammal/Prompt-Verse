@@ -1,24 +1,23 @@
-{%extends "layout.html" %}
+{% extends "layout.html" %}
 
-{% block title %}Homepage{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="cyan-bg min-vh-100 d-flex flex-column justify-content-center align-items-center">
+<div class="container d-flex justify-content-center align-items-start" style="min-height: calc(100vh - 120px);">
+  <div class="glass-card p-4 rounded shadow" style="max-width: 600px; width: 100%;">
 
-<h1 class="mb-4">Submit Your Prompt</h1>
+    <h1 class="text-center mb-4 text-white">How can I help you today?</h1>
 
-<form method="POST" 
-      class="container bg-white p-4 rounded shadow-sm" 
-      style="max-width: 500px;">
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
 
-  <input type="text" 
-         class="form-control mb-3" 
-         name="prompt" 
-         placeholder="Enter your prompt here">
+         <form method="POST" class="d-flex gap-2">
+           <input type="text" class="form-control" name="prompt" placeholder="Enter your prompt here">
+           <button type="submit" class="btn btn-outline-light">Submit</button>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+         </form>
 
+  </div>
 </div>
 {% endblock %}
-

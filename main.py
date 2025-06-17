@@ -17,7 +17,6 @@ def home():
       return redirect(url_for('thanks'))
   return render_template('home.html', prompts=prompts_list, error=error)
 
-
 @app.route('/prompts')
 def prompts():
   return render_template('prompts.html', prompts=prompts_list)
@@ -25,6 +24,11 @@ def prompts():
 @app.route('/thanks')
 def thanks():
   return render_template('thanks.html')
+
+
+@app.route('/about')
+def about():
+  return render_template('about.html')
 
 if __name__ == "__main__":
   app.run(debug=True, host="0.0.0.0")
