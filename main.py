@@ -1,6 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, SQLAlchemy
 
 app = Flask(__name__)
+
+
+app.config['SQLALCHEMY_DATABASE_URI']=sqlite:///prompts.db
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+db=SQLAlchemy(app)
 
 prompts_list=[]
 
@@ -29,6 +34,11 @@ def thanks():
 @app.route('/about')
 def about():
   return render_template('about.html')
+
+class Prompts(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  text = db.Column(db.Text, nullable=False)
+  category = db.Column(db.String(100))
 
 if __name__ == "__main__":
   app.run(debug=True, host="0.0.0.0")
