@@ -5,7 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///instance/prompts.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///prompts.db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db=SQLAlchemy(app)
 
@@ -20,13 +21,17 @@ def home():
     if (not prompt or prompt.strip() ==" "):
       error="Enter a valid input!"
     else:
-      prompts_list.append(prompt)
+      new_prompt=Prompt(text=prompt)
+      db.session.add(new_prompt)
+      db.session.commit()
       return redirect(url_for('thanks'))
-  return render_template('home.html', prompts=prompts_list, error=error)
+  return render_template('home.html', error=error)
 
 @app.route('/prompts')
 def prompts():
-  return render_template('prompts.html', prompts=prompts_list)
+  all
+  -prompts=Prompts.query.all()
+  return render_template('prompts.html', prompts=all_prompts)
 
 @app.route('/thanks')
 def thanks():
