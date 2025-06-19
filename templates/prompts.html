@@ -8,7 +8,7 @@
     <h1 class="text-white">Prompts</h1>
     <ol class="text-white">
       {% for prompt in prompts %}
-        <li>{{ prompt }}</li>
+        <li>{{ prompt.text }}</li>
       {% else %}
         <p class="text-white" >No prompts found.</p>
       {% endfor %}

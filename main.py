@@ -21,7 +21,7 @@ def home():
     if (not prompt or prompt.strip() ==" "):
       error="Enter a valid input!"
     else:
-      new_prompt=Prompt(text=prompt)
+      new_prompt=Prompts(text=prompt)
       db.session.add(new_prompt)
       db.session.commit()
       return redirect(url_for('thanks'))
@@ -29,8 +29,7 @@ def home():
 
 @app.route('/prompts')
 def prompts():
-  all
-  -prompts=Prompts.query.all()
+  all_prompts=Prompts.query.all()
   return render_template('prompts.html', prompts=all_prompts)
 
 @app.route('/thanks')
