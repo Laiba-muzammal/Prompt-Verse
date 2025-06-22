@@ -1,9 +1,4 @@
-.glass-bg {
-  background: linear-gradient(to right, #0aa4a1, #ff1a7d);
-  color: white;
-  min-height: 100%;
-}
-/* Glassy background */
+/* Gradient glassy background */
 .glass-bg {
   background: linear-gradient(to right, #0aa4a1, #ff1a7d);
   min-height: 100vh;
@@ -19,11 +14,25 @@
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* gives proper edges */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
 }
 
-/* Navbar links */
+/* Buttons inside glass-card */
+.glass-card .btn {
+  border-radius: 25px;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glass-card .btn:hover {
+  background-color: #ffffff;
+  color: #0aa4a1;
+}
+
+/* Navbar links (if used elsewhere) */
 .nav-link {
   color: white;
   font-weight: 500;
