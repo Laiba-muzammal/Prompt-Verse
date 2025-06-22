@@ -10,40 +10,42 @@
 <body class="glass-bg d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="glass-card" style="width: 500px;">
 
-        <!-- signup.html ke <form> ke upar yeh block paste karo -->
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    {% for category, message in messages %}
-      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-          {{ message }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
-
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
         <form method="POST" action="{{ url_for('prompts.signup') }}">
             <h2 class="text-center mb-4">Sign Up</h2>
 
             <div class="mb-3">
                 <label for="name" class="form-label">Full Name:</label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name"
+                       value="{{ name or '' }}">
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="e.g. yourname@gmail.com">
+                <input type="email" id="email" name="email" class="form-control"
+                       placeholder="e.g. yourname@gmail.com" value="{{ email or '' }}">
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Enter a strong password">
+                <input type="password" id="password" name="password" class="form-control"
+                       placeholder="Enter a strong password">
             </div>
 
             <div class="mb-3">
                 <label for="confirm_password" class="form-label">Confirm Password:</label>
-                <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Re-type your password">
+                <input type="password" id="confirm_password" name="confirm_password" class="form-control"
+                       placeholder="Re-type your password">
             </div>
 
             <div class="d-grid">
