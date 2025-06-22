@@ -7,7 +7,7 @@
   <div class="glass-card p-4 rounded shadow" style="max-width: 600px; width: 100%;">
 
      {% if g.user %}
-      <h1 class="text-center mb-2 text-white">👋 Welcome back, {{ g.user.name }}!</h1>
+      <h2 class="text-center mb-2 text-white">👋 Welcome back, {{ g.user.name }}!</h2>
     {% endif %}
 
     <h4 class="text-center mb-4 text-white">How can I help you today?</h4>
@@ -21,6 +21,14 @@
            <button type="submit" class="btn btn-outline-light">Submit</button>
 
          </form>
+
+         {% if answer %}
+  <div class="alert alert-success mt-3 text-white bg-success">
+    <strong>AI Response:</strong><br>
+    {{ answer }}
+  </div>
+{% endif %}
+
 
   </div>
 </div>
