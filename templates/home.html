@@ -7,10 +7,10 @@
   <div class="glass-card p-4 rounded shadow" style="max-width: 600px; width: 100%;">
 
      {% if g.user %}
-      <h4 class="text-center mb-4 text-white">👋 Welcome back, {{ g.user.name }}!</h4>
+      <h4 class="text-center mb-2 text-white">👋 Welcome back, {{ g.user.name }}!</h4>
     {% endif %}
 
-    <h1 class="text-center mb-3 text-white">How can I help you today?</h1>
+    <h1 class="text-center mb-4 text-white">How can I help you today?</h1>
 
     {% if error %}
       <div class="alert alert-danger">{{ error }}</div>
