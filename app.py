@@ -4,6 +4,8 @@ from models import db, User, Prompts
 from prompts.routes import prompts
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 
 app.config['SECRET_KEY'] = 'The Millionaire Laiba'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///prompts.db'
