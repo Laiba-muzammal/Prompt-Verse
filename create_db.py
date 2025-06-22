@@ -1,6 +1,7 @@
 from app import app
-from models import db
+from models import db,User ,Prompts
 
 with app.app_context():
   db.create_all()
   print("Database created!")
+  
