@@ -4,51 +4,63 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>{% block title %}PromptVerse{% endblock %}</title>
+
+  <!-- Bootstrap & Custom CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ url_for('static', filename='style.css') }}?v=6" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-
 </head>
-  <body class="glass-bg">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent px-4 py-3">
-      <div class="container-fluid">
 
-        <!-- APP NAME: PromptVerse -->
-        <a class="navbar-brand text-uppercase fw-bold fs-2" href="/" style="letter-spacing: 1px;">
-          Prompt Verse 
-        </a>
+<body class="glass-bg">
+  <!-- 🔷 NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent px-4 py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand text-uppercase fw-bold fs-2" href="{{ url_for('prompts.landing') }}">
+        Prompt Verse
+      </a>
 
-        <!-- Mobile Toggler Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto gap-3">
-            <li class="nav-item">
-              <a class="nav-link fw-medium" href="/home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium" href="/about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium" href="/prompts">Prompts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium" href="/">Logout</a>
-            </li>
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-3">
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="{{ url_for('prompts.home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="{{ url_for('prompts.about') }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="{{ url_for('prompts.show_prompts') }}">Prompts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="{{ url_for('prompts.logout') }}">Logout</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
+  <!-- 🔶 FLASH MESSAGES -->
+  <div class="container mt-3">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
 
-  <main class="container mt-4">
+  <!-- 🔶 CONTENT BLOCK -->
+  <main class="container-lg mt-4">
     {% block content %}{% endblock %}
   </main>
-  </body>
+</body>
 </html>

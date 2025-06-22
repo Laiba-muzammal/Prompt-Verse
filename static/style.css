@@ -28,3 +28,50 @@
   text-decoration: none;
   color: #cceeff;
 }
+
+/* Navbar glass effect & border for clarity */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px;
+  margin: 10px 20px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Brand Title enhancement */
+.navbar-brand {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: white !important;
+}
+
+/* Make nav-links pop a bit */
+.navbar-nav .nav-link {
+  font-size: 1.05rem;
+  color: #f0f0f0 !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Optional: underline hover effect */
+.navbar-nav .nav-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
+  width: 0%;
+  margin-top: 4px;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
