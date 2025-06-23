@@ -75,3 +75,12 @@
 .navbar-nav .nav-link:hover::after {
   width: 100%;
 }
+
+.ai-response-box {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  white-space: pre-line;
+}
