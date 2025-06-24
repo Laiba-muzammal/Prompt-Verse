@@ -5,6 +5,11 @@ A beginner‑friendly Flask web app where users can submit prompts and get AI‑
 
 ---
 
+## 🔗 Live Demo  
+🌍[https://751f2996-3701-4c06-98dc-714a3543d10f-00-3op6god1poq07.sisko.replit.dev/]
+
+---
+
 ## 🚀 Features
 
 - 🔐 User Signup, Login, Logout  
