@@ -5,17 +5,13 @@ from prompts.routes import prompts
 import os
 
 app = Flask(__name__)
-app.secret_key = ('SECRET_KEY')
+app.secret_key = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///prompts.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 app.register_blueprint(prompts)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-    
 @app.before_request
 def load_logged_in_user():
     user_id = session.get('user_id')
