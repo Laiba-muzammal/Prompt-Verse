@@ -33,21 +33,9 @@ def home():
         if not prompt or prompt.strip() == "":
             error = "Enter a valid input!"
         else:
-            # Step 1: AI response call karo (agar hai), warna "" rakho
-            answer = ""  # ya call AI model here if you're using OpenAI or others
+            # --- Step 1: API Call karo pehle ---
+            answer = ""  # default agar API fail kare
 
-            # Step 2: Model field names ka sahi use
-            new_prompt = Prompts(
-                prompt=prompt,
-                answer=answer,
-                user_id=g.user.id
-            )
-
-            # Step 3: Save
-            db.session.add(new_prompt)
-            db.session.commit()
-
-            # API Call
             headers = {
                 "Authorization": f"Bearer {os.getenv('API_KEY')}",
                 "Content-Type": "application/json"
@@ -67,6 +55,15 @@ def home():
                     error = f"API Error: {response.status_code} - {response.text}"
             except Exception as e:
                 error = str(e)
+
+            # --- Step 2: Save prompt + answer ab database mein ---
+            new_prompt = Prompts(
+                prompt=prompt,
+                answer=answer,
+                user_id=g.user.id
+            )
+            db.session.add(new_prompt)
+            db.session.commit()
 
     return render_template('home.html', error=error, answer=answer, prompt=prompt)
 
