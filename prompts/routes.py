@@ -33,7 +33,17 @@ def home():
         if not prompt or prompt.strip() == "":
             error = "Enter a valid input!"
         else:
-            new_prompt = Prompts(text=prompt, user_id=g.user.id)
+            # Step 1: AI response call karo (agar hai), warna "" rakho
+            ai_response = ""  # ya call AI model here if you're using OpenAI or others
+
+            # Step 2: Model field names ka sahi use
+            new_prompt = Prompts(
+                prompt_text=prompt,
+                ai_response=ai_response,
+                user_id=g.user.id
+            )
+
+            # Step 3: Save
             db.session.add(new_prompt)
             db.session.commit()
 
@@ -170,3 +180,13 @@ def logout():
     session.clear()
     return redirect(url_for('prompts.landing'))
 
+# ------------------------- FAVORITE -------------------------
+@prompts.route("/fav", methods=["POST"])
+def favorite_prompt():
+    prompt_text = request.form.get("prompt_text")
+    
+    # us prompt ko save karwana (abhi bas print bhi karwa do)
+    print("User marked as favorite:", prompt_text)
+
+    # wapas redirect kar dena kisi page par
+    return redirect(url_for('home'))
