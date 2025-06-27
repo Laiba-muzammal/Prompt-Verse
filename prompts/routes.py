@@ -199,4 +199,4 @@ def favorite_prompt():
         db.session.add(new_fav)
         db.session.commit()
 
-    return redirect(url_for('prompts.home'))
+    return redirect(url_for('prompts.fav'))
