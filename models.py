@@ -22,6 +22,6 @@ class Prompts(db.Model):
     ai_response = db.Column(db.Text, nullable=False)    
 
     is_favorite = db.Column(db.Boolean, default=False)   
-    
+
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.timezone.utc)
