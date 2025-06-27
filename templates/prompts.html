@@ -11,8 +11,8 @@
       <ol class="text-white">
         {% for p in prompts %}
           <li class="mb-3 justify-content-center">
-            <strong>📝 Prompt:</strong> {{ p.prompt }} <br>
-            <strong>🤖 Response:</strong> {{ p.answer }}<br>
+            <strong>Prompt:</strong> {{ p.prompt }} <br>
+            <strong>Response:</strong> {{ p.answer }}<br>
             <strong>AT: {{p.created_at}}</strong><br>
           </li>
         {% endfor %}
