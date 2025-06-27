@@ -26,6 +26,7 @@ def login_required(view):
 def home():
     error = None
     answer = None
+    prompt = ""
 
     if request.method == 'POST':
         prompt = request.form.get('prompt')
