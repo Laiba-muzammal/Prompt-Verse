@@ -141,7 +141,7 @@ def signup():
             not re.search(r"[A-Za-z]", password) or         
             not re.search(r"\d", password) or               
             not re.search(r"[@$%#&*^_|\\/]", password) ):
-            flash("❗ Password must be at least 6 characters long and include:\n• At least one letter (A–Z or a–z)\n• At least one number (0–9)\n• At least one special character (@$%#&*^_|\\/)")
+            flash("Password must be at least 6 characters long having \n\n • At least one letter (A–Z or a–z)\n\n• At least one number (0–9)\n\n• At least one special character (@$%#&*^_|\\/)")
             return render_template('signup.html', name=name, email=email, password=password)
 
         if password != confirm:
