@@ -5,7 +5,7 @@ from prompts.routes import prompts
 import os
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY')
+app.secret_key = ('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///prompts.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
