@@ -31,10 +31,12 @@
 </div>
 
 <div class="justify-content-left">
-    <form method="POST" action="/fav" class="d-flex gap-2">
-        <input type="text" class="form-control" name="prompt" placeholder="Enter your prompt here">
-        <button type="submit" class="btn btn-outline-light">Submit</button>
-    </form>
+<form method="POST" action="/fav" class="d-flex gap-2">
+    <input type="hidden" name="prompt" value="{{ prompt }}">
+    <input type="hidden" name="response" value="{{ answer }}">
+    <button type="submit" class="btn btn-outline-light">⭐️ Mark as Favorite</button>
+</form>
+
 </div>
 
 {% endif %}
