@@ -1,18 +1,25 @@
 {% extends "layout.html" %}
 
-{% block title %}Prompts{% endblock %}
+{% block title %}📜 My History{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
   <div class="glass-card p-4 rounded shadow">
-    <h1 class="text-white">Prompts</h1>
-    <ol class="text-white">
-      {% for prompt in prompts %}
-        <li>{{ prompt.text }}</li>
-      {% else %}
-        <p class="text-white" >No prompts found.</p>
-      {% endfor %}
-    </ol>
+    <h1 class="text-white mb-4">📜 My Prompt History</h1>
+
+    {% if prompts %}
+      <ol class="text-white">
+        {% for prompt in prompts %}
+          <li class="mb-3">
+            <strong>📝 Prompt:</strong> {{ prompt.prompt_text }} <br>
+            <strong>🤖 Response:</strong> {{ prompt.ai_response }}
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <p class="text-white">No prompts found.</p>
+    {% endif %}
+
   </div>
 </div>
 {% endblock %}
