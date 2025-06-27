@@ -2,13 +2,10 @@ from flask import Flask, session, g
 from flask_sqlalchemy import SQLAlchemy
 from models import db, User
 from prompts.routes import prompts
-from dotenv import load_dotenv
-
-load_dotenv()
-
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'The Millionaire Laiba'
+app.secret_key = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///prompts.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
