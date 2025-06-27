@@ -9,10 +9,10 @@
 
     {% if prompts %}
       <ol class="text-white">
-        {% for prompt in prompts %}
+        {% for prompt,answer in prompts %}
           <li class="mb-3">
-            <strong>📝 Prompt:</strong> {{ prompt.prompt_text }} <br>
-            <strong>🤖 Response:</strong> {{ prompt.ai_response }}
+            <strong>📝 Prompt:</strong> {{ prompt }} <br>
+            <strong>🤖 Response:</strong> {{ answer }}
           </li>
         {% endfor %}
       </ol>
