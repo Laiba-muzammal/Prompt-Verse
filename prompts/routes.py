@@ -130,22 +130,22 @@ def signup():
         confirm = request.form.get('confirm_password', '')
 
         if not name or not email or not password or not confirm:
-            flash("All fields are required!")
+            flash("All fields are required!","danger")
             return render_template('signup.html', name=name, email=email)
 
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
-            flash("Invalid email format!")
+            flash("Invalid email format!","danger")
             return render_template('signup.html', name=name, email=email)
         
         if (len(password) < 6 or
             not re.search(r"[A-Za-z]", password) or         
             not re.search(r"\d", password) or               
             not re.search(r"[@$%#&*^_|\\/]", password) ):
-            flash("Password must be at least 6 characters long having at least one letter (A–Z or a–z), one number (0–9) & one special character (@$%#&*^_|\\/)")
+            flash("Password must be at least 6 characters long having at least one letter (A–Z or a–z), one number (0–9) & one special character (@$%#&*^_|\\/)","danger")
             return render_template('signup.html', name=name, email=email, password=password)
 
         if password != confirm:
-            flash("Passwords do not match!")
+            flash("Passwords do not match!","danger")
             return render_template('signup.html', name=name, email=email)
 
         existing_user = User.query.filter_by(email=email).first()
