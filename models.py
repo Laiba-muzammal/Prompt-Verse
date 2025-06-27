@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+from datetime import datetime
 
 db = SQLAlchemy()
 class User(db.Model):
@@ -18,10 +18,10 @@ class Prompts(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    prompt_text = db.Column(db.Text, nullable=False)     
-    ai_response = db.Column(db.Text, nullable=False)    
+    prompt = db.Column(db.Text, nullable=False)     
+    answer = db.Column(db.Text, nullable=False)    
 
     is_favorite = db.Column(db.Boolean, default=False)   
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.timezone.utc)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)

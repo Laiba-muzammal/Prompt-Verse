@@ -34,12 +34,12 @@ def home():
             error = "Enter a valid input!"
         else:
             # Step 1: AI response call karo (agar hai), warna "" rakho
-            ai_response = ""  # ya call AI model here if you're using OpenAI or others
+            answer = ""  # ya call AI model here if you're using OpenAI or others
 
             # Step 2: Model field names ka sahi use
             new_prompt = Prompts(
-                prompt_text=prompt,
-                ai_response=ai_response,
+                prompt=prompt,
+                ai_response=answer,
                 user_id=g.user.id
             )
 
