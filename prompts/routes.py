@@ -178,23 +178,24 @@ def logout():
     return redirect(url_for('prompts.landing'))
 
 # ------------------------- FAVORITE -------------------------
-@prompts.route("/fav", methods=["POST"])
+@prompts.route("/fav", methods=["GET","POST"])
 def favorite_prompt():
-    prompt = request.form.get("prompt")
-    answer=request.form.get("answer")
+    if request.method=="POST":
+        prompt = request.form.get("prompt")
+        answer=request.form.get("answer")
 
-    if not prompt or not answer:
-        flash("Error!","danger")
-        return redirect(url_for('prompts.home'))
+        if not prompt or not answer:
+            flash("Error!","danger")
+            return redirect(url_for('prompts.home'))
 
-    new_fav = Prompts(
-                prompt=prompt,
-                answer=answer,
-                user_id=g.user.id,
-                is_favorite=True
-            )
+        new_fav = Prompts(
+                    prompt=prompt,
+                    answer=answer,
+                    user_id=g.user.id,
+                    is_favorite=True
+                )
 
-    db.session.add(new_fav)
-    db.session.commit()
+        db.session.add(new_fav)
+        db.session.commit()
 
     return redirect(url_for('home'))
