@@ -1,6 +1,7 @@
 from flask import Flask, session, g
 from flask_sqlalchemy import SQLAlchemy
 from models import db, User
+from flask_migrate import Migrate
 from prompts.routes import prompts
 import os
 
@@ -10,6 +11,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///prompts.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
+migrate = Migrate() 
+migrate.init_app(app, db) 
 app.register_blueprint(prompts)
 
 @app.before_request
