@@ -185,10 +185,6 @@ def favorite_prompt():
         prompt = request.form.get("prompt")
         answer = request.form.get("answer")
 
-        if not prompt or not answer:
-            flash("Error!", "danger")
-            return redirect(url_for('prompts.home'))
-
         new_fav = Prompts(
             prompt=prompt,
             answer=answer,
