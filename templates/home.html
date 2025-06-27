@@ -28,10 +28,8 @@
   <br>
   <strong>AI Response:</strong>
   {{ answer }} 
-</div>
 
-<div class="justify-content-left">
-<form method="POST" action="/fav" class="d-flex gap-2">
+<form method="POST" action="/fav" class="d-flex gap-2 justify-content-right">
     <input type="hidden" name="prompt" value="{{ prompt }}">
     <input type="hidden" name="response" value="{{ answer }}">
     <button type="submit" class="btn btn-outline-light">⭐️ Mark as Favorite</button>
