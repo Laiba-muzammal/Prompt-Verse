@@ -9,14 +9,16 @@
 </head>
 
 <body class="glass-bg d-flex">
-   <div class="sidebar">
-  <a href="/" class="brand">PROMPTVERSE</a>
-
-  <a href="/home"><i class="bi bi-house-door-fill"></i> Home</a>
-  <a href="/about"><i class="bi bi-book-fill"></i> About</a>
-  <a href="/prompts"><i class="bi bi-clock-fill"></i> History</a>
-  <a href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
-</div>
+    <h1 style="text-align: center;">🔮 Prompt Verse</h1>
+    <div class="sidebar d-flex flex-column p-3">
+    <h2 class="text-uppercase fw-bold fs-4 mb-4">Your Dashboard</h2>
+    <ul class="nav nav-pills flex-column mb-auto gap-2">
+      <li><a href="{{ url_for('prompts.home') }}" class="nav-link">Home</a></li>
+      <li><a href="{{ url_for('prompts.about') }}" class="nav-link">About</a></li>
+      <li><a href="{{ url_for('prompts.show_prompts') }}" class="nav-link">History</a></li>
+      <li><a href="{{ url_for('prompts.logout') }}" class="nav-link mt-auto">Logout</a></li>
+    </ul>
+  </div>
 
   <main class="flex-grow-1 p-4">
     {% block content %}{% endblock %}
