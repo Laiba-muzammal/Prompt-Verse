@@ -4,35 +4,22 @@
   <meta charset="UTF-8">
   <title>{% block title %}PromptVerse{% endblock %}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='style.css') }}?v=6" rel="stylesheet">
+  <link href="{{ url_for('static', filename='style.css') }}?v=8" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="glass-bg">
-  
-    
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent px-4 py-3">
-    <div class="container-fluid">
-      <a class="navbar-brand text-uppercase fw-bold fs-2" href="{{ url_for('prompts.landing') }}">
-        Prompt Verse
-      </a>
+<body class="glass-bg d-flex">
+   <div class="sidebar d-flex flex-column p-3">
+    <h2 class="text-uppercase fw-bold fs-4 mb-4">PromptVerse</h2>
+    <ul class="nav nav-pills flex-column mb-auto gap-2">
+      <li><a href="{{ url_for('prompts.home') }}" class="nav-link">🏠 Home</a></li>
+      <li><a href="{{ url_for('prompts.about') }}" class="nav-link">📖 About</a></li>
+      <li><a href="{{ url_for('prompts.show_prompts') }}" class="nav-link">🕓 History</a></li>
+      <li><a href="{{ url_for('prompts.logout') }}" class="nav-link mt-auto">🚪 Logout</a></li>
+    </ul>
+  </div>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-3">
-          <li class="nav-item"><a class="nav-link fw-medium" href="/home">Home</a></li>
-          <li class="nav-item"><a class="nav-link fw-medium" href="/about">About</a></li>
-          <li class="nav-item"><a class="nav-link fw-medium" href="/prompts">Prompts</a></li>
-          <li class="nav-item"><a class="nav-link fw-medium" href="/logout">Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <main class="container mt-4">
+  <main class="flex-grow-1 p-4">
     {% block content %}{% endblock %}
   </main>
 </body>
