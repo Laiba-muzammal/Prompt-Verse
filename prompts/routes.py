@@ -179,6 +179,7 @@ def logout():
 
 # ------------------------- FAVORITE -------------------------
 @prompts.route("/fav", methods=["GET","POST"])
+@login_required 
 def favorite_prompt():
     if request.method=="POST":
         prompt = request.form.get("prompt")
@@ -198,4 +199,4 @@ def favorite_prompt():
         db.session.add(new_fav)
         db.session.commit()
 
-    return redirect(url_for('home'))
+    return redirect(url_for('prompts.home'))
