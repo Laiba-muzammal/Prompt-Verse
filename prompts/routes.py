@@ -57,7 +57,7 @@ def home():
             except Exception as e:
                 error = str(e)
 
-    return render_template('home.html', error=error, answer=answer)
+    return render_template('home.html', error=error, answer=answer, prompt=prompt)
 
 
 # ------------------------- PROMPTS PAGE -------------------------
@@ -104,17 +104,16 @@ def login():
         password = request.form.get('password', '')
 
         if not email or not password:
-            flash("Email and password required.")
+            flash("Email and password required.","danger")
             return render_template('login.html', email=email)
 
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password, password):
             session['user_id'] = user.id
             session['user_name'] = user.name
-            flash("Login successful!")
             return redirect(url_for('prompts.home'))
         else:
-            flash("Invalid email or password.")
+            flash("Invalid email or password.","danger")
             return render_template('login.html', email=email)
 
     return render_template('login.html')
@@ -150,7 +149,7 @@ def signup():
 
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
-            flash("Email already registered.")
+            flash("Email already registered.","danger")
             return render_template('signup.html', name=name, email=email)
 
         hashed_password = generate_password_hash(password)
@@ -158,7 +157,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        flash("Signup successful! Login now.")
+        flash("Signup successful! Login now.","danger")
         return redirect(url_for('prompts.login'))
 
     return render_template('signup.html')
