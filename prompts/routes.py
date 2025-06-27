@@ -39,7 +39,7 @@ def home():
             # Step 2: Model field names ka sahi use
             new_prompt = Prompts(
                 prompt=prompt,
-                ai_response=answer,
+                answer=answer,
                 user_id=g.user.id
             )
 
