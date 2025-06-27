@@ -12,6 +12,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 app.register_blueprint(prompts)
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
+    
 @app.before_request
 def load_logged_in_user():
     user_id = session.get('user_id')
