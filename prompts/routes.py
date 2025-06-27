@@ -136,6 +136,13 @@ def signup():
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
             flash("Invalid email format!")
             return render_template('signup.html', name=name, email=email)
+        
+        if (len(password) < 6 or
+            not re.search(r"[A-Za-z]", password) or         
+            not re.search(r"\d", password) or               
+            not re.search(r"[@$%#&*^_|\\/]", password) ):
+            flash("❗ Password must be at least 6 characters long and include:\n• At least one letter (A–Z or a–z)\n• At least one number (0–9)\n• At least one special character (@$%#&*^_|\\/)")
+            return render_template('signup.html', name=name, email=email, password=password)
 
         if password != confirm:
             flash("Passwords do not match!")
@@ -162,3 +169,4 @@ def signup():
 def logout():
     session.clear()
     return redirect(url_for('prompts.landing'))
+
