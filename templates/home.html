@@ -19,7 +19,6 @@
          <form method="POST" class="d-flex gap-2">
            <input type="text" class="form-control" name="prompt" placeholder="Enter your prompt here">
            <button type="submit" class="btn btn-outline-light">Submit</button>
-
          </form>
 
 {% if answer %}
@@ -28,8 +27,16 @@
   {{prompt}}
   <br>
   <strong>AI Response:</strong>
-  {{ answer }}
+  {{ answer }} 
 </div>
+
+<div class="justify-content-left">
+    <form method="POST" action="/fav" class="d-flex gap-2">
+        <input type="text" class="form-control" name="prompt" placeholder="Enter your prompt here">
+        <button type="submit" class="btn btn-outline-light">Submit</button>
+    </form>
+</div>
+
 {% endif %}
 
 

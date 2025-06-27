@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Favorites{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-start mt-5">
+  <div class="glass-card p-4 rounded shadow" style="max-width: 700px; width: 100%;">
+    <h2 class="text-center text-white mb-4">⭐️ Your Favorite Prompts</h2>
+
+    {% if favorites %}
+      <ul class="list-group">
+        {% for fav in favorites %}
+          <li class="list-group-item mb-3">
+            <strong>Prompt:</strong> {{ fav.prompt }}<br>
+            <strong>Response:</strong> {{ fav.response }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="alert alert-info text-center">You haven't marked any favorites yet.</div>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}

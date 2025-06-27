@@ -180,10 +180,21 @@ def logout():
 # ------------------------- FAVORITE -------------------------
 @prompts.route("/fav", methods=["POST"])
 def favorite_prompt():
-    prompt_text = request.form.get("prompt_text")
-    
-    # us prompt ko save karwana (abhi bas print bhi karwa do)
-    print("User marked as favorite:", prompt_text)
+    prompt = request.form.get("prompt")
+    answer=request.form.get("answer")
 
-    # wapas redirect kar dena kisi page par
+    if not prompt or not answer:
+        flash("Error!","danger")
+        return redirect(url_for('prompts.home'))
+
+    new_fav = Prompts(
+                prompt=prompt,
+                answer=answer,
+                user_id=g.user.id,
+                is_favorite=True
+            )
+
+    db.session.add(new_fav)
+    db.session.commit()
+
     return redirect(url_for('home'))
