@@ -72,7 +72,7 @@ def home():
 @prompts.route('/prompts')
 @login_required
 def show_prompts():
-    all_prompts = Prompts.query.filter_by(user_id=g.user.id).all()
+    all_prompts = Prompts.query.filter_by(user_id=g.user.id).order_by(Prompts.created_at.desc()).all()
     return render_template('prompts.html', prompts=all_prompts)
 
 
