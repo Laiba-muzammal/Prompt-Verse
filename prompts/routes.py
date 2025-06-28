@@ -31,10 +31,10 @@ def home():
     if request.method == 'POST':
         prompt = request.form.get('prompt')
         if not prompt or prompt.strip() == "":
-            error = "Enter a valid input!"
+            flash("Enter a valid prompt!", "danger")
+
         else:
-            # --- Step 1: API Call karo pehle ---
-            answer = ""  # default agar API fail kare
+            answer = "" 
 
             headers = {
                 "Authorization": f"Bearer {os.getenv('API_KEY')}",
@@ -200,3 +200,13 @@ def favorite_prompt():
     # GET request: show all favorites of logged-in user
     favorites = Prompts.query.filter_by(user_id=g.user.id, is_favorite=True).all()
     return render_template("fav.html", favorites=favorites)
+
+# ------------------------- 404 error-------------------------
+@prompts.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+# ------------------------- 500 error -------------------------
+@prompts.errorhandler(500)
+def internal_server_error(e):
+    return render_template("500.html"), 500

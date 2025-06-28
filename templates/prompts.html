@@ -3,17 +3,17 @@
 {% block title %}📜 My History{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 ">
   <div class="glass-card p-4 rounded shadow">
     <h1 class="text-white mb-4">📜 My Prompt History</h1>
 
     {% if prompts %}
-      <ol class="text-white">
+      <ol class="text-white ">
         {% for p in prompts %}
-          <li class="mb-3 justify-content-center">
+          <li class="mb-4 justify-content-center">
             <strong>Prompt:</strong> {{ p.prompt }} <br>
             <strong>Response:</strong> {{ p.answer }}<br>
-            <strong>AT: {{p.created_at}}</strong><br>
+            <strong>AT:</strong> {{ p.created_at }}<br>
           </li>
         {% endfor %}
       </ol>

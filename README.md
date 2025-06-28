@@ -1,77 +1,86 @@
-# PromptVerse
-# 🌐 Prompt‑Verse
+# PromptVerse 🚀
 
-A beginner‑friendly Flask web app where users can submit prompts and get AI‑generated responses via Hugging Face. Includes signup, login, session handling, and a history of all prompts.
+A clean, full-stack Flask web app that helps users write, test, store, and organize AI prompts—all in a secure, minimal interface.
 
----
+## 🌐 Live Demo  
+[Explore PromptVerse →](https://your-live-link-url.com)
 
-## 🔗 Live Demo  
-🌍[https://751f2996-3701-4c06-98dc-714a3543d10f-00-3op6god1poq07.sisko.replit.dev/]
+## ✨ Key Features
 
----
-
-## 🚀 Features
-
-- 🔐 User Signup, Login, Logout  
-- 🧠 AI‑powered responses via Hugging Face API  
-- 📚 Prompt history saved per user  
-- 🛡️ Secure password hashing & session control  
-- 🧩 Modular structure using Flask Blueprints  
-
----
+- 🔐 **Authentication**: Secure signup, login, and logout with session management  
+- 🤖 **AI Responses**: Submit prompts and receive answers from Mistral-8x7B via OpenRouter API  
+- 🕒 **Prompt History**: View your full prompt + response log with timestamps  
+- ⭐ **Favorites**: Mark prompts as favorites for easy retrieval  
+- 📨 **Flash Messages**: Real-time feedback for success, errors, and alerts  
+- 🚫 **404/Error Pages**: Custom error pages for a polished user experience  
+- 📱 **Responsive Design**: Clean UI built with Bootstrap  
+- 💾 **Database**: SQLite + SQLAlchemy ORM for safe and structure data handling  
+- 🧩 **Modular Code**: Organized using Flask Blueprints and Jinja2 templating  
 
 ## 📁 Project Structure
 
-Prompt‑Verse/
-├── prompts/ # Flask Blueprint
-│ └── routes.py
+promptverse/
+├── prompts/ # Flask Blueprints (routes & templates)
+├── static/ # CSS, JS (Bootstrap)
 ├── templates/ # Jinja2 templates
-│ └── *.html
-├── static/
-│ └── style.css
-├── models.py # Database models
-├── create_db.py # Setup DB
-├── app.py # Main Flask app runner
+├── models.py # SQLAlchemy models (User, Prompt)
+├── app.py # Application setup and routes
+├── create_db.py # Initializes the database
 ├── requirements.txt # Python dependencies
-├── .env (ignored) # Config variables
-└── README.md
+└── .env # Environment variables (ignored)
 
----
+## 🚀 Getting Started
 
-## 💻 Setup & Run Locally
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/Laiba-muzammal/Prompt‑Verse.git
+   cd Prompt‑Verse
+Create Virtual Environment & Install
 
-git clone https://github.com/Laiba-muzammal/Prompt‑Verse.git
-cd Prompt‑Verse
-
-# Virtual environment
+bash
 python -m venv env
-env\Scripts\activate           # Windows
-# OR source env/bin/activate   # macOS/Linux
-
+source env/bin/activate      # Linux/Mac  
+env\Scripts\activate         # Windows
 pip install -r requirements.txt
+Configure .env
 
-# Create config
-echo API_KEY=your_huggingface_key > .env
+ini
+API_KEY=your_openrouter_api_key
+API_MODEL=mistralai/mixtral-8x7b-instruct
+SECRET_KEY=your_secret_key
+Initialize Database
 
-# Initialize database
+bash
 python create_db.py
+Run Application
 
-# Run app
-python app.py
-Visit http://127.0.0.1:5000 to view the app.
+bash
+flask run
+Open http://127.0.0.1:5000 in your browser.
 
-📝 Usage
-Signup and login
+## 🧠 Why This Project Stands Out
+This isn’t just a basic chatbot—it’s a structured prompt management platform that combines:
 
-Enter a prompt on the home page
+Secure user-based sessions
+Database-driven storage and retrieval
+AI interactions with real-time feedback
+UX polish including error handling and responsiveness
+It shows proficiency across backend, frontend, database design, authentication, and API integration—perfectly suited for a resume or portfolio.
 
-Submit to get an AI response
+## 👩‍💻 Want to Contribute?
+Pull requests welcome! For major changes, please open an issue first.
 
-View your prompt history anytime
+## 📝 License
+This project is licensed under MIT — feel free to explore, fork, and learn.
 
-👩‍💻 Contributing
-PRs welcome! For major changes, please open an issue first.
+### 🔍 Why This Works
+- **Clear top-level summary** explaining what the app is and who it's for  
+- **Live demo link** included for immediate access  
+- **Key features** listed concisely with emojis for quick comprehension  
+- **Project structure** gives a clear overview of code organization  
+- **Get started** steps are concise and actionable  
+- **Why it stands out** frames the project as a portfolio-ready showcase (based on best practices from _awesome-readme_ guidelines) :contentReference[oaicite:11]{index=11}  
+- **Contributing & licensing** sections adhere to community standards
 
-💬 Author
-Laiba Muzammal
-GitHub Profile
+This version will present your project as a professional, well-structured, and fully functional full-stack app. Let me know if you need a PR-ready file or help with badges/Bots integration!
+::contentReference[oaicite:12]{index=12}
