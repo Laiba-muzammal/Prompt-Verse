@@ -76,14 +76,6 @@ def show_prompts():
     return render_template('prompts.html', prompts=all_prompts)
 
 
-# ------------------------- HISTORY PAGE -------------------------
-@prompts.route('/history')
-@login_required
-def history():
-    user_prompts = Prompts.query.filter_by(user_id=g.user.id).order_by(Prompts.created_at.desc()).all()
-    return render_template('history.html', prompts=user_prompts)
-
-
 # ------------------------- THANKS PAGE -------------------------
 @prompts.route('/thanks')
 @login_required
