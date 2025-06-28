@@ -1,4 +1,4 @@
-from flask import Flask, session, g
+from flask import Flask, session, g,render_template
 from flask_sqlalchemy import SQLAlchemy
 from models import db, User
 from flask_migrate import Migrate
@@ -25,6 +25,17 @@ def load_logged_in_user():
     else:
         g.user = User.query.get(user_id)
         print("g.user =", g.user)
+
+# ------------------------- 404 error-------------------------
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+# ------------------------- 500 error -------------------------
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template("500.html"), 500
+
 
 if __name__ == "__main__":
     app.run(debug=True)
