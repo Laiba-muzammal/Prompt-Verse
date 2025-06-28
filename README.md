@@ -53,7 +53,7 @@ Run Application
 
 bash
 flask run
-Open http://127.0.0.1:5000 in your browser.
+Open it in your browser.
 
 ## 🧠 Why This Project Stands Out
 This isn’t just a basic chatbot—it’s a structured prompt management platform that combines:
