@@ -177,13 +177,14 @@ def logout():
     session.clear()
     return redirect(url_for('prompts.landing'))
 
-# ------------------------- FAVORITE -------------------------
+# ------------------------- Fav -------------------------
 @prompts.route("/fav", methods=["GET", "POST"])
 @login_required
 def favorite_prompt():
     if request.method == "POST":
         prompt = request.form.get("prompt")
         answer = request.form.get("answer")
+        next_url = request.form.get("next") or url_for('prompts.home')  # fallback
 
         new_fav = Prompts(
             prompt=prompt,
@@ -195,18 +196,9 @@ def favorite_prompt():
         db.session.add(new_fav)
         db.session.commit()
         flash("Marked as Favorite!", "success")
-        return redirect(url_for('prompts.favorite_prompt'))
-
-    # GET request: show all favorites of logged-in user
-    favorites = Prompts.query.filter_by(user_id=g.user.id, is_favorite=True).all()
+        return redirect(next_url) 
+    
+    favorites = Prompts.query.filter_by(user_id=g.user.id, is_favorite=True).order_by(Prompts.created_at.desc()).all()
     return render_template("fav.html", favorites=favorites)
 
-# ------------------------- 404 error-------------------------
-@prompts.errorhandler(404)
-def page_not_found(e):
-    return render_template("404.html"), 404
 
-# ------------------------- 500 error -------------------------
-@prompts.errorhandler(500)
-def internal_server_error(e):
-    return render_template("500.html"), 500

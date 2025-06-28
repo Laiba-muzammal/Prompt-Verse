@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime,timezone
 
 db = SQLAlchemy()
 class User(db.Model):
@@ -24,4 +24,4 @@ class Prompts(db.Model):
     is_favorite = db.Column(db.Boolean, default=False)   
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
