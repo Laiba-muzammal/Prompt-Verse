@@ -2,9 +2,6 @@
 
 A clean, full-stack Flask web app that helps users write, test, store, and organize AI prompts—all in a secure, minimal interface.
 
-## 🌐 Live Demo  
-[Explore PromptVerse →](https://your-live-link-url.com)
-
 ## ✨ Key Features
 
 - 🔐 **Authentication**: Secure signup, login, and logout with session management  
