@@ -2,9 +2,6 @@
 
 A clean, full-stack Flask web app that helps users write, test, store, and organize AI prompts—all in a secure, minimal interface.
 
-## 🌐 Live Demo  
-[Explore PromptVerse →](https://your-live-link-url.com)
-
 ## ✨ Key Features
 
 - 🔐 **Authentication**: Secure signup, login, and logout with session management  
@@ -37,12 +34,13 @@ promptverse/
    cd Prompt‑Verse
 Create Virtual Environment & Install
 
-bash
+```bash
 python -m venv env
 source env/bin/activate      # Linux/Mac  
 env\Scripts\activate         # Windows
 pip install -r requirements.txt
 Configure .env
+```
 
 ini
 API_KEY=your_openrouter_api_key
@@ -50,13 +48,15 @@ API_MODEL=mistralai/mixtral-8x7b-instruct
 SECRET_KEY=your_secret_key
 Initialize Database
 
-bash
+```bash
 python create_db.py
 Run Application
+```
 
-bash
+```bash
 flask run
-Open http://127.0.0.1:5000 in your browser.
+Open it in your browser.
+```
 
 ## 🧠 Why This Project Stands Out
 This isn’t just a basic chatbot—it’s a structured prompt management platform that combines:
