@@ -76,19 +76,11 @@ def show_prompts():
     return render_template('prompts.html', prompts=all_prompts)
 
 
-# ------------------------- THANKS PAGE -------------------------
-@prompts.route('/thanks')
-@login_required
-def thanks():
-    return render_template('thanks.html')
-
-
 # ------------------------- ABOUT PAGE -------------------------
 @prompts.route('/about')
 @login_required
 def about():
     return render_template('about.html')
-
 
 # ------------------------- LANDING -------------------------
 @prompts.route('/')
