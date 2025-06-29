@@ -23,20 +23,21 @@
 
 {% if answer %}
 <div class="ai-response-box">
-  <strong>Your Prompt:</strong>
-  {{prompt}}
-  <br>
-  <strong>AI Response:</strong>
-  {{ answer }} 
+  <p><strong>Your Prompt:</strong> {{ prompt }}</p>
+  <p><strong>AI Response:</strong> {{ answer }}</p>
 
-<form method="POST" action="/fav" class="d-flex gap-2">
-    <input type="hidden" name="prompt" value="{{ prompt }}">
-    <input type="hidden" name="answer" value="{{ answer }}">
-    <input type="hidden" name="next" value="{{ request.path }}">
-    <button type="submit" class="btn btn-outline-light ms-auto">⭐️ Mark as Favorite</button>
+<form method="POST" action="/fav" class="d-flex align-items-center p-0 m-0">
+  <input type="hidden" name="prompt" value="{{ prompt }}">
+  <input type="hidden" name="answer" value="{{ answer }}">
+  <input type="hidden" name="next" value="{{ request.path }}">
+  
+  <div class="flex-grow-1"></div> 
+
+  <button type="submit" class="btn btn-outline-light p-1">Mark as Favorite</button>
 </form>
 
 </div>
+
 
 {% endif %}
 

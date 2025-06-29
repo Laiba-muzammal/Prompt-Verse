@@ -12,21 +12,21 @@
 
   <!-- SIDEBAR -->
   <div class="sidebar d-flex flex-column p-3" style="width: 260px; min-height: 100vh;">
-    <h2 class="text-uppercase fw-bold fs-4 mb-4 text-white border-bottom pb-2">📊 Dashboard</h2>
+    <h2 class="text-uppercase fw-bold fs-4 mb-4 text-white border-bottom pb-2">Dashboard</h2>
     
-    <ul class="nav nav-pills flex-column mb-auto gap-3">
-      <li><a href="{{ url_for('prompts.home') }}" class="nav-link text-white">🏠 Home</a></li>
-      <li><a href="{{ url_for('prompts.about') }}" class="nav-link text-white">📘 About</a></li>
-      <li class="mt-auto"><a href="{{ url_for('prompts.favorite_prompt') }}" class="nav-link text-white">❤️ Favorites</a></li>
-      <li><a href="{{ url_for('prompts.show_prompts') }}" class="nav-link text-white">🕒 History</a></li>
-      <li class="mt-auto"><a href="{{ url_for('prompts.logout') }}" class="nav-link text-white">🚪 Logout</a></li>
+    <ul class="nav nav-pills flex-column mb-auto gap-3 text-center">
+      <li><a href="{{ url_for('prompts.home') }}" class="nav-link text-white">HOME</a></li>
+      <li><a href="{{ url_for('prompts.about') }}" class="nav-link text-white">ABOUT</a></li>
+      <li class="mt-auto"><a href="{{ url_for('prompts.favorite_prompt') }}" class="nav-link text-white">FAVORITES</a></li>
+      <li><a href="{{ url_for('prompts.show_prompts') }}" class="nav-link text-white">HISTORY</a></li>
+      <li class="mt-auto"><a href="{{ url_for('prompts.logout') }}" class="nav-link text-white">LOGOUT</a></li>
     </ul>
   </div>
 
   <!-- MAIN SECTION -->
   <main class="flex-grow-1 p-4">
     <div class="text-center mb-4">
-      <h1 class="fw-bold display-5 text-white">🔮 PromptVerse</h1>
+      <h1 class="fw-bold display-5 text-white">PromptVerse</h1>
       <hr class="border-white opacity-50 w-25 mx-auto mt-3">
     </div>
 

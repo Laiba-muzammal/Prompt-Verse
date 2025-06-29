@@ -24,4 +24,4 @@ class Prompts(db.Model):
     is_favorite = db.Column(db.Boolean, default=False)   
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc).replace(microsecond=0))
