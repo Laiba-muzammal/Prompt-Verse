@@ -67,7 +67,7 @@ SECRET_KEY=your_secret_key
 python create_db.py
 ```
 
-###Run Application
+### Run Application
 
 ```bash
 flask run
