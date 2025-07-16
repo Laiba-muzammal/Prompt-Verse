@@ -52,8 +52,6 @@ env\Scripts\activate         # Windows
 pip install -r requirements.txt
 ```
 
----
-
 ### Configure .env
 
 ```bash 
@@ -61,15 +59,15 @@ ini
 API_KEY=your_openrouter_api_key
 API_MODEL=mistralai/mixtral-8x7b-instruct
 SECRET_KEY=your_secret_key
-Initialize Database
 ```
 
----
+### Initialize Database
 
 ```bash
 python create_db.py
-Run Application
 ```
+
+###Run Application
 
 ```bash
 flask run
