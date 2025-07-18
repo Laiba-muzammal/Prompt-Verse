@@ -4,20 +4,6 @@ A clean, full-stack Flask web app that helps users write, test, store, and organ
 
 ---
 
-## ✨ Key Features
-
-- 🔐 **Authentication**: Secure signup, login, and logout with session management  
-- 🤖 **AI Responses**: Submit prompts and receive answers from Mistral-8x7B via OpenRouter API  
-- 🕒 **Prompt History**: View your full prompt + response log with timestamps  
-- ⭐ **Favorites**: Mark prompts as favorites for easy retrieval  
-- 📨 **Flash Messages**: Real-time feedback for success, errors, and alerts  
-- 🚫 **404/Error Pages**: Custom error pages for a polished user experience  
-- 📱 **Responsive Design**: Clean UI built with Bootstrap  
-- 💾 **Database**: SQLite + SQLAlchemy ORM for safe and structure data handling  
-- 🧩 **Modular Code**: Organized using Flask Blueprints and Jinja2 templating  
-
----
-
 ## 📸 Preview & Screenshots
 
 A visual walkthrough of PromptVerse — from landing to login, usage to errors:
@@ -33,6 +19,23 @@ A visual walkthrough of PromptVerse — from landing to login, usage to errors:
 | ❤️ Favourites | 🕓 History | ⚠️ 404 Error |
 |----------------|------------|----------------|
 | ![Favourites](screenshots/favourites.png) | ![History](screenshots/history.png) | ![Error](screenshots/error_404.png) |
+
+---
+
+## ✨ Key Features
+
+- 🔐 **Authentication**: Secure signup, login, and logout with session management  
+- 🤖 **AI Responses**: Submit prompts and receive answers from Mistral-8x7B via OpenRouter API  
+- 🕒 **Prompt History**: View your full prompt + response log with timestamps  
+- ⭐ **Favorites**: Mark prompts as favorites for easy retrieval  
+- 📨 **Flash Messages**: Real-time feedback for success, errors, and alerts  
+- 🚫 **404/Error Pages**: Custom error pages for a polished user experience  
+- 📱 **Responsive Design**: Clean UI built with Bootstrap  
+- 💾 **Database**: SQLite + SQLAlchemy ORM for safe and structure data handling  
+- 🧩 **Modular Code**: Organized using Flask Blueprints and Jinja2 templating  
+
+---
+
 ## 📁 Project Structure
 
 ```bash
