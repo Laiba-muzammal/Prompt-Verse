@@ -18,6 +18,21 @@ A clean, full-stack Flask web app that helps users write, test, store, and organ
 
 ---
 
+## 📸 Preview & Screenshots
+
+A visual walkthrough of PromptVerse — from landing to login, usage to errors:
+
+| 🌐 Landing | 🏠 Home | 🔐 Login |
+|-----------|--------|----------|
+| ![Landing](screenshots/landing.png) | ![Home](screenshots/home.png) | ![Login](screenshots/login.png) |
+
+| 📝 Signup | 📖 About | 💬 Answers |
+|-----------|----------|------------|
+| ![Signup](screenshots/signup.png) | ![About](screenshots/about.png) | ![Answers](screenshots/answers.png) |
+
+| ❤️ Favourites | 🕓 History | ⚠️ 404 Error |
+|----------------|------------|----------------|
+| ![Favourites](screenshots/favourites.png) | ![History](screenshots/history.png) | ![Error](screenshots/error_404.png) |
 ## 📁 Project Structure
 
 ```bash
